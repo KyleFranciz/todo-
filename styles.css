@@ -7,12 +7,16 @@ body {
 }
 
 :root {
-    font-family: inter;
+    --taskboxColor: #3D3D3D;
+    --secondColor: white;
+    --taskHighlight:#2F2F2F;
+    --selectorHighlight:#292929;
+    
 }
 
 /*^Navbar Section*/
 .navbar {
-    background-color: green;
+    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,53 +51,73 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255);
     height: 93.5vh;
 
 }
 
-
-
-/*Search Bar (Outer Searchbar Wrap)*/
-.main-searchbox {
-    background-color: rgb(255, 255, 255);
+/*Center Section that has the input*/
+#center-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px black;
-    border-radius: 60px;
-    margin-top: 20px;
-    height: 45px;
-    width: 500px;
-}
-
-/*Inside Searchbox*/
-#search-bar {
-    background-color: rgb(255, 255, 255);
-    height: 30px;
-    width: 420px;
-    border-radius: 60px;
-    border: none;
-    outline: none;
-    text-align: center;
-    font-size: 18px;
-    font-family: inter;
-    font-weight: 500;
-    color: grey; /*Searchbar color for text*/
-    opacity: 60%;   /*Opacity of the text words with in the input*/
-}
-
-/*Plus Icon*/
-#plus-icon {
-    height: 30px;
-    background-color: rgb(255, 255, 255);
-}
-
-/*Center Box / Middle Section*/
-.center-box {
-    margin-top: 20px;
-    background-color: gray;
-    height: 470px;
-    width: 700px;
+    flex-direction: column;
     border-radius: 25px;
+    background-color: #3D3D3D;
+    height: 75px;
+    width: 650px;
+    margin-top: -140px;
+    position: fixed;
+    
 }
+
+
+
+
+/*input-section */
+#input-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+
+}
+
+
+
+/*Style for the introPhrase for js*/
+.intro-phrase {
+    color: white;
+    font-family: inter;
+    font-size: 1.1rem;
+}
+
+
+/*Input box for entering new tasks*/
+#input-task {
+    width: 540px;
+    height: 45px;
+    background-color: white;
+    outline: none;
+    border: none;
+    border-radius: 60px;
+    text-align: center;
+    font-family: inter;
+    font-size: 1rem;
+    margin-right: -40px;
+}
+
+#add-btn {
+    border: none;
+    color: white;
+    background-color: #2F2F2F;
+    border-radius: 30px;
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+    font-weight: 550;
+}
+
+
+

@@ -20,26 +20,38 @@
     </section>
 
     <!--Main Page-->
-    <div class="main-page">
-        <!--Searchbar Section-->
-        <div class="main-searchbox">
-            <form action="search">
-                <input id="search-bar" type="text" placeholder="Add task...">
+    <div onclick="revertSize()" class="main-page">
+        <!--Task box / Searchbar / Center Section-->
+        <div id="center-section">
+            <div id="input-section">
+                <!--Searchbar-->
+            <form action="append">
+                <input onclick="expandCenterBox()" id="input-task" type="text" placeholder="Add task...">
             </form>
-            <img id="plus-icon" src="plus-icon-black-2.png" alt="">
+            <button id="add-btn">+</button>
+            </div>
+            <!--introPhrase Gets appended here-->
         </div>
-        <!--Task box / Center Section-->
-        <div class="center-box">
-            
-        </div>
-        <!--Switch Between Box Selector-->
+        
+
+
+
+
+
 
     </div>
+        
+        
+            
+        
+        <!--Switch Between Box Selector-->
+
+    
 
     
 
 
 
-    
+    <script src="Functionality.js"></script>
 </body>
 </html>
