@@ -12,6 +12,7 @@ body {
     --taskHighlight:#2F2F2F;
     --selectorHighlight:#292929;
     
+    
 }
 
 /*^Navbar Section*/
@@ -31,6 +32,10 @@ body {
     
 }
 
+#menu-icon:hover {
+    cursor: pointer;
+}
+
 /*Main Logo*/
 #main-logo {
     height: 40px;
@@ -41,7 +46,14 @@ body {
     height: 50px;
     border-radius: 30px;
     margin: 10px;
+    /*add drop shadow or border to the avatar icon*/
 }
+
+#avatar:hover {
+    cursor: pointer;
+}
+
+
 
 
 
@@ -56,6 +68,19 @@ body {
 
 }
 
+#center-section-regular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    background-color: #3D3D3D;
+    height: 75px;
+    width: 650px;
+    margin-top: -140px;
+    position: fixed;
+}
+
 /*Center Section that has the input*/
 #center-section {
     display: flex;
@@ -68,11 +93,49 @@ body {
     width: 650px;
     margin-top: -140px;
     position: fixed;
+    transition: padding-bottom, 180ms ease-in-out;
     
 }
 
+#center-section:hover {
+    padding-bottom: 90px;
+    cursor: pointer;
+}
 
+#introPhrase {
+    opacity: 0;
+}
 
+.intro-phrase {
+    animation: Reveal 160ms ease-in forwards;
+    margin-top: -60px;
+    color: white;
+}
+
+.outro-phrase {
+    animation: ExitPhrase 120ms ease-in;
+}
+
+@keyframes Reveal {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    } 100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes ExitPhrase {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    } 100% {
+        transform: translateX(-50px);
+        opacity: 0;
+
+    }
+}
 
 /*input-section */
 #input-section {
@@ -87,11 +150,7 @@ body {
 
 
 /*Style for the introPhrase for js*/
-.intro-phrase {
-    color: white;
-    font-family: inter;
-    font-size: 1.1rem;
-}
+
 
 
 /*Input box for entering new tasks*/
