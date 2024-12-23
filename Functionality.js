@@ -11,15 +11,36 @@ const introPhrase = document.getElementById('introPhrase')
 
 //Create a function that makes the intro phrase invisible when the mouse is not on the centerBox
 function revealWord() {
-    introPhrase.classList.add('intro-phrase')
+    //turns on if its not already pre activated
+    introPhrase.classList.toggle('intro-phrase')
+    
+    //figure out how to make the animation stay constant
 }
 
 function hideWord() {
-    introPhrase.classList.remove('intro-phrase') 
+    //turns off if its already activated
+    introPhrase.classList.toggle('intro-phrase') 
 }
 
-centerBox.addEventListener('mouseover', revealWord)
-centerBox.addEventListener('mouseout', hideWord)
+//Create function to keep the phrase on the screen when the h3 element is hovered over:
+function keepWord() {
+    //select the intro phrase and keep it visible
+    introPhrase.classList.replace('intro-phrase', 'intro-phrase-constant') // activates the constant style that i created to keep the style visible
+}
+
+//Create function that removes event listener after the animation is completed
+function onAnimationEnd () {
+    centerBox.removeEventListener('animationend', onAnimationEnd)
+}
+
+// If the mouse enters the center box, theses functions activate
+centerBox.addEventListener('mouseenter', revealWord)
+centerBox.addEventListener('mouseleave', hideWord)
+
+// If these animations play in the center box then make sure it doesn't trigger again
+
+
+
 //Create a function that removes an id when the input is selected:
 //function resetBox() {
     //changes the id to another style I made that is identical but without the hover

@@ -28,7 +28,7 @@ body {
 /*Menu Icon*/
 #menu-icon {
     height: 20px;
-    margin: 10px;
+    margin: 20px;
     
 }
 
@@ -45,7 +45,7 @@ body {
 #avatar {
     height: 50px;
     border-radius: 30px;
-    margin: 10px;
+    margin: 20px;
     /*add drop shadow or border to the avatar icon*/
 }
 
@@ -97,23 +97,38 @@ body {
     
 }
 
+/* hover effect for the center box */
 #center-section:hover {
     padding-bottom: 90px;
     cursor: pointer;
 }
 
+
+/*intro phrase that appears when ever the center box is hovered over*/
 #introPhrase {
     opacity: 0;
 }
 
 .intro-phrase {
+    will-change: animation;
     animation: Reveal 160ms ease-in forwards;
     margin-top: -60px;
     color: white;
+    cursor: default;
+}
+
+.intro-phrase:hover {
+    pointer-events: none;
+}
+
+.intro-phrase-constant {
+    margin-top: -60px;
+    color: white;
+    opacity: 1;
 }
 
 .outro-phrase {
-    animation: ExitPhrase 120ms ease-in;
+    animation: ExitPhrase 50ms ease-in ;
 }
 
 @keyframes Reveal {
@@ -133,6 +148,7 @@ body {
     } 100% {
         transform: translateX(-50px);
         opacity: 0;
+        visibility: hidden;
 
     }
 }
@@ -167,6 +183,7 @@ body {
     margin-right: -40px;
 }
 
+/*Button to add tasks to the list*/
 #add-btn {
     border: none;
     color: white;
@@ -177,6 +194,19 @@ body {
     font-size: 1.5rem;
     font-weight: 550;
 }
+
+#add-btn:hover {
+    background-color: #454545;
+    cursor: pointer;
+}
+
+#add-btn:active {
+    scale: 1.1; /* edit the scale to be smoother animation for when the button is clicked */
+
+}
+
+
+
 
 
 
