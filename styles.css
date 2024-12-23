@@ -68,6 +68,12 @@ body {
 
 }
 
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #center-section-regular {
     display: flex;
     justify-content: center;
@@ -98,7 +104,7 @@ body {
 }
 
 /* hover effect for the center box */
-#center-section:hover {
+.box:hover #center-section {
     padding-bottom: 90px;
     cursor: pointer;
 }
@@ -107,29 +113,21 @@ body {
 /*intro phrase that appears when ever the center box is hovered over*/
 #introPhrase {
     opacity: 0;
+    margin-top: -60px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    
 }
 
-.intro-phrase {
+/*When hovered over the box the intro phrase for the center-box animation plays and stays*/
+.box:hover #introPhrase {
     will-change: animation;
     animation: Reveal 160ms ease-in forwards;
-    margin-top: -60px;
-    color: white;
-    cursor: default;
+
+
 }
 
-.intro-phrase:hover {
-    pointer-events: none;
-}
-
-.intro-phrase-constant {
-    margin-top: -60px;
-    color: white;
-    opacity: 1;
-}
-
-.outro-phrase {
-    animation: ExitPhrase 50ms ease-in ;
-}
 
 @keyframes Reveal {
     0% {
@@ -141,17 +139,6 @@ body {
     }
 }
 
-@keyframes ExitPhrase {
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    } 100% {
-        transform: translateX(-50px);
-        opacity: 0;
-        visibility: hidden;
-
-    }
-}
 
 /*input-section */
 #input-section {
@@ -162,6 +149,7 @@ body {
     width: 100%;
 
 }
+
 
 
 

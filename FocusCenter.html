@@ -22,20 +22,23 @@
     <!--Main Page-->
     <div onclick="revertSize()" class="main-page">
         <!--Task box / Searchbar / Center Section-->
-        <div id="center-section">
-            <div id="input-section">
-                <!--Searchbar-->
-            <form action="append">
-                <input onclick="resetBox()" id="input-task" type="text" placeholder="Add task...">
-            </form>
-            <button id="add-btn">+</button>
+        <div class="box">
+            <div id="center-section">
+                <div id="input-section">
+                    <!--Searchbar-->
+                <form action="append">
+                    <input class="input-task" id="input-task" type="text" placeholder="Add task...">
+                </form>
+                <button id="add-btn">+</button>
+                </div>
+                <!--introPhrase Gets appended here-->
             </div>
-            <!--introPhrase Gets appended here-->
+            <!--Edit this section and figure out how to transition this in when the padding 
+            drops down -->
+            <h3 class="intro-phrase" id="introPhrase">Let's Add Some Tasks</h3>
         </div>
-        <!--Edit this section and figure out how to transition this in when the padding 
-        drops down -->
-        <h3 id="introPhrase">Let's Add Some Tasks</h3>
-    
+        
+
     </div>
     
         <!--Switch Between Box Selector-->
