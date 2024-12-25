@@ -3,9 +3,9 @@
 //Variables that will be used and some examples:
 //const mainPage = document.getElementsByClassName('main-page')
 
-const centerBox = document.getElementById('center-section')
+//const centerBox = document.getElementById('center-section')
 
-const introPhrase = document.getElementById('introPhrase')
+//const introPhrase = document.getElementById('introPhrase')
 
 
 

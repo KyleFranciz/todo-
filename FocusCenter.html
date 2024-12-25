@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="Functionality.js"></script>
+    <script src="OnActive.js"></script>
 </head>
 <body>
     <!--Navbar Section of the Page-->
@@ -15,35 +17,48 @@
         <div class="navbar">
             <img id="menu-icon" src="Icon.png" alt="">
             <img id="main-logo" src="FOCUS CENTER..png" alt="">
-            <img id="avatar" src="375666.jpeg" alt="">
+            <div class="right-side-nav">
+                <img onmouseover="bellHover()" id="noti-bell" src="bell dark.png" alt="bell">
+                <img id="avatar" src="375666.jpeg" alt="">
+            </div>
         </div>
     </section>
-
+    
     <!--Main Page-->
-    <div onclick="revertSize()" class="main-page">
+    <div class="main-page">
         <!--Task box / Searchbar / Center Section-->
         <div class="box">
             <div id="center-section">
+                <!--Searchbar-->
                 <div id="input-section">
-                    <!--Searchbar-->
-                <form action="append">
-                    <input class="input-task" id="input-task" type="text" placeholder="Add task...">
-                </form>
-                <button id="add-btn">+</button>
+                    <form action="append">
+                        <input class="input-task" id="input-task" type="text" placeholder="Add task...">
+                    </form>
+                    <button onclick="addTask()" id="add-btn">+</button>
                 </div>
                 <!--introPhrase Gets appended here-->
             </div>
             <!--Edit this section and figure out how to transition this in when the padding 
             drops down -->
-            <h3 class="intro-phrase" id="introPhrase">Let's Add Some Tasks</h3>
+            <div id="listCase">
+                <div class="phrase-case">
+                    <h3 class="intro-phrase" id="introPhrase">Let's Add Some Tasks</h3>
+                </div>
+                <!--This section is for all the items that will be appended to the list -->
+                <ul id="task-list">
+                    <!--List items will be added here-->
+                </ul>
+            </div>
+            
+            
         </div>
         
-
+        
     </div>
     
-        <!--Switch Between Box Selector-->
-
-    <script src="Functionality.js"></script>
+    <!--Switch Between Box Selector-->
+    
+    
 </body>
 </html>
 
