@@ -27,8 +27,8 @@ body {
 
 /*Menu Icon*/
 #menu-icon {
-    height: 20px;
-    margin: 20px;
+    height: 25px;
+    margin: 25px;
     
 }
 
@@ -51,13 +51,13 @@ body {
 
 /*notification bell icon*/
 #noti-bell {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
 }
 
 /*Avatar*/
 #avatar {
-    height: 34px;
+    height: 45px;
     border-radius: 30px;
     margin: 20px;
     border: 1px solid #292929;
@@ -85,6 +85,13 @@ body {
 
 /*casing that covers the all the elements in the center section*/
 .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box-non-hover {
     display: flex;
     justify-content: center;
     align-items: center;
