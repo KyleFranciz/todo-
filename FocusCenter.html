@@ -15,11 +15,23 @@
     <!--Navbar Section of the Page-->
     <section>
         <div class="navbar">
-            <img id="menu-icon" src="Icon.png" alt="">
-            <img id="main-logo" src="FOCUS CENTER..png" alt="">
+            <img id="menu-icon" src="Icons/Icon.png" alt="">
+            <img id="main-logo" src="Logo/FOCUS CENTER..png" alt="">
             <div class="right-side-nav">
-                <img onmouseover="bellHover()" id="noti-bell" src="bell.png" alt="dark bell">
-                <img id="avatar" src="375666.jpeg" alt="">
+                <!--Create a popover that pops up bellow the notification bell-->
+                <div popover class="alert-pop"></div> <!--popovers have a display of none by default-->
+                <img onmouseover="bellHover()" id="noti-bell" src="Icons/bell.png" alt="dark bell">
+                <!--Create another popover for the user avatar-->
+                <div class="user-button-case">
+                    <button popovertarget="profile-menu" class="user-btn" id="userBtn"><img id="avatar" src="Profile-Picture/375666.jpeg" alt=""></button>
+                    <!--POPOVER CASE FOR PROFILE PICTURE-->
+                    <div popover="manual" anchor="userBtn" id="profile-menu" class="profile-menu">
+                        <!--List of popover items that will be able to be selected-->
+                        <!--? Make them links at some point -->
+                        <p class="popover-menu-item">User Profile</p>
+                        <p class="popover-menu-item">Manage accounts</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -32,7 +44,7 @@
                 <!--Searchbar-->
                 <div id="input-section">
                     <form action="append">
-                        <input class="input-task" id="input-task" type="text" placeholder="Add task...">
+                        <input class="input-task" id="input-task" type="text" placeholder="Add task..." autocomplete="off">
                     </form>
                     <button onclick="addTask()" id="add-btn">+</button>
                 </div>
@@ -40,14 +52,19 @@
             </div>
             <!--Edit this section and figure out how to transition this in when the padding 
             drops down -->
+            <div id="phrase-case" class="phrase-case">
+                <h3 class="intro-phrase" id="introPhrase">Let's Add Some Tasks</h3>
+            </div> 
+
+            <ul id="task-list">
+                <!--List items will be added here-->
+            </ul>
             <div id="listCase">
-                <div class="phrase-case">
-                    <h3 class="intro-phrase" id="introPhrase">Let's Add Some Tasks</h3>
-                </div>
-                <!--This section is for all the items that will be appended to the list -->
-                <ul id="task-list">
-                    <!--List items will be added here-->
-                </ul>
+                
+                <!--Case that has the intro phrase when the center section is initially hovered over-->
+                
+                <!--This section is to store all the items that will be appended to the list -->
+                
             </div>
             
             

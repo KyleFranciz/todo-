@@ -55,6 +55,74 @@ body {
     width: 30px;
 }
 
+/*User button case*/
+.user-button-case {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*User button that holds the image*/
+.user-btn {
+    
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    color: transparent;
+    background-color: transparent;
+    border: none;
+}
+
+.userBtn{
+    anchor-name: --User-Button;
+}
+
+/*User Popover Styles*/
+[popover] {
+    
+    
+    
+}
+
+/*Profile Menu*/
+.profile-menu {
+    background-color: #292929;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    border: 0;
+    padding: 0;
+    
+}
+
+.profile-menu:popover-open {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height:270px;
+}
+
+/*Popover menu item*/
+.popover-menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px 0px;
+    width: 250px;
+    font-family: inter;
+}
+
+.popover-menu-item:hover {
+    background-color: #3D3D3D;
+    cursor: pointer;
+}
+
 /*Avatar*/
 #avatar {
     height: 45px;
@@ -124,10 +192,10 @@ body {
     height: 75px;
     max-height: auto;
     width: 650px;
-    margin-top: -140px;
+    margin-top: -30px;
     position: fixed;
     transition: padding-bottom, 180ms ease-in-out;
-    padding-bottom: 0;
+    padding-bottom: 0px;
     
 }
 
@@ -137,19 +205,24 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
 /*intro phrase that appears when ever the center box is hovered over*/
-#introPhrase {
+.intro-phrase {
     opacity: 0;
     color: white;
     cursor: pointer;
     position: absolute;
+    margin: 0;
 }
 
 /*possible styles for intro phrase if needed for js*/
-#introPhrase-regular {
-    opacity: 0;
+.intro-phrase-regular {
+    padding: 0;
+    margin: 0;
+    display: none;
+    font-size: 0%;
 }
 
 .phrase-case {
@@ -161,13 +234,16 @@ body {
     z-index: 1;
     width: 600px;
     height: 40px;
-    margin-top: -55px;
+    margin-top: 55px;
     border-radius: 60px;
     cursor: pointer;
 }
 
 .phrase-case-regular {
-    opacity: 0;
+    display: none;
+    position: relative;
+    height: 0;
+    width: 0;
 
 }
 
@@ -181,7 +257,7 @@ body {
 
 /*listed items in the unlisted list*/
 /*ADD CASING BEHIND THE TEXT*/
-.list-item {
+#list-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,13 +290,13 @@ body {
 
 
 /*When hovered over the box the intro phrase for the center-box animation plays and stays*/
-.box:hover #introPhrase {
+.box:hover .intro-phrase {
     will-change: animation;
     animation: Reveal 160ms ease-in forwards;
 }
 
 /*Make non-hovering styles*/
-.box-non-hover:hover #introPhrase {
+.box-non-hover:hover .intro-phrase {
     animation: none;
 }
 

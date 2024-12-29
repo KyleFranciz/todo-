@@ -26,6 +26,17 @@ function addTask() {
   const taskList = document.getElementById("task-list");
   //Create variable for text in the input
   const taskText = inputTask.value.trim();
+  
+  //TODO: Trial - See if appending li element to listCase solves the problem
+  const listCase = document.getElementById('listCase')
+
+  //*SECTION IF THE UL list LENGTH IS OVER 6 ALERT THE USER THAT THEY HAVE TO COMPLISH THEIR OTHER TASKS FIRST:
+                //* IF ITS 7+ THEN THE USER CAN CONTINUE ADDING ITEMS TO THE LIST
+
+  if (taskList.getElementsByTagName('li').length >= 7) {
+    alert("You have reached the maximum amount of tasks for now")
+    return;
+  }       
 
   //Create alert if left blank:
   if (taskText === "") {
@@ -33,26 +44,19 @@ function addTask() {
     return;
   }
 
+  //*SECTION THAT GETS RID OFF THE HOVER EFFECTS SO THAT THE ANIMATION STOP PLAYING 
+                          //* WHEN AN ELEMENT IS ADDED
 
-    //add the box const to the function so that it can be used to change the class for the hover style
-    const box = document.getElementById('box')
-    //add the non hover class to remove the styles
-    box.classList.add('box-non-hover')
+  
+  //add the box const to the function so that it can be used to change the class for the hover style
+  const box = document.getElementById('box')
 
-  //Remove the introPhrase from the centerBox so that the elements have a place to be added:
-  
-  //Create new task
-  const newTasks = document.createElement("li");
-  
-  //Make task equal to what was entered into the input box:
-  newTasks.innerHTML = taskText;
-  
-  //give the element a class ID that adds the style to the new list elements
-  newTasks.classList.add("list-item");
-  
-  //Append the task to the list
-  taskList.appendChild(newTasks);
+  //add the non hover class to remove the styles
+  box.classList.add('box-non-hover')
 
+
+
+  //*SECTION THAT INCREASES THE PADDING ON THE ELEMENT SO THAT THERES SPACE
   //TODO: Figure out the bug when adding new list items 
 
   //Create center section variable to edit the padding to add more padding on the bottom
@@ -62,10 +66,59 @@ function addTask() {
   const OriginalBottomPadding = parseInt(window.getComputedStyle(centerSection).paddingBottom);
 
   //Make a variabel that increases the podding on the bottom each time an element is added:
-  const increasedPadding = OriginalBottomPadding + 50
+  const increasedPadding = OriginalBottomPadding + 45
 
   //apply the increment of the bottom padding
   centerSection.style.paddingBottom = `${increasedPadding}px`
+
+  
+  //*SECTION THAT ADDS MARGIN TOP TO THE CENTER SECTION SO THE TASKS DONT OVERFLOW 
+
+  //Get the margin top of the center section 
+  const OrginalTop = parseInt(window.getComputedStyle(centerSection).marginTop)
+
+  //combine the margin-top plus the amount I want to add together
+  const newTop = OrginalTop - 5
+
+  //make the margin top of the center section style update each button click
+  centerSection.style.marginTop = `${newTop}px`
+
+  
+  //*SECTION THAT GETS RID OF THE OTHER ELEMENTS SO THAT THE SPACE IS TAKEN UP
+
+  //add introphrase, make it into another id to cancel the space it takes up:
+  const introPhrase = document.getElementById('introPhrase');
+
+  //Add class to remove the existing styles on the element:
+  introPhrase.classList.remove('intro-phrase')
+  introPhrase.classList.add('intro-phrase-regular')
+
+  //add the phrase-case as a variable so that it can be deleted
+  const phraseCase = document.getElementById('phrase-case');
+
+  //Add class to remove the existing styles on the element:
+  phraseCase.classList.remove('phrase-case')
+  phraseCase.classList.add('phrase-case-regular') 
+
+
+         
+  
+  //*SECTION THAT CREATES A NEW TASK 
+  const newTasks = document.createElement("li");
+  
+  //Make task equal to what was entered into the input box:
+  newTasks.innerHTML = taskText;
+  
+  //give the element a class ID that adds the style to the new list elements
+  newTasks.id = "list-item";
+  
+  //Append the task to the list
+  taskList.appendChild(newTasks);
+
+  //Trial - See if appending the li elements to the listCase solves the spacing problem
+  //listCase.appendChild(newTasks)
+
+  
 
   
   //Make the center-section expand by 10px
@@ -101,14 +154,14 @@ function bellHover() {
 
   //When mouse hovers over the bell
   bellIcon.addEventListener("mouseover", () => {
-    bellIcon.src = "bell dark.png";
+    bellIcon.src = "Icons/bell dark.png";
     bellIcon.style.cursor = "pointer";
     bellIcon.style.scale = 1.1;
   });
 
   //When mouse leaves the bell
   bellIcon.addEventListener("mouseout", () => {
-    bellIcon.src = "bell.png";
+    bellIcon.src = "Icons/bell.png";
     bellIcon.style.scale = 1;
   });
 }
