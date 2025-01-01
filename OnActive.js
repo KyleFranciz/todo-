@@ -26,6 +26,10 @@ function addTask() {
   const taskList = document.getElementById("task-list");
   //Create variable for text in the input
   const taskText = inputTask.value.trim();
+  //Controls all everything having to do with the selector case
+  const selectorCase = document.getElementById('selector-case')
+  //Minimum amount
+  const minAmount = 0
   
   //TODO: Trial - See if appending li element to listCase solves the problem
   const listCase = document.getElementById('listCase')
@@ -37,6 +41,13 @@ function addTask() {
     alert("You have reached the maximum amount of tasks for now")
     return;
   }       
+
+  //Create if statement that detects if the list is greater than 0
+  if (taskList.getElementsByTagName('li').length > minAmount) {
+    selectorCase.style.display = 'flex';
+  } else {
+    selectorCase.style.display = 'none'
+  }
 
   //Create alert if left blank:
   if (taskText === "") {
@@ -118,9 +129,6 @@ function addTask() {
   //Trial - See if appending the li elements to the listCase solves the spacing problem
   //listCase.appendChild(newTasks)
 
-  
-
-  
   //Make the center-section expand by 10px
   
   //After list item is added, clear the list for new tasks:
@@ -165,3 +173,5 @@ function bellHover() {
     bellIcon.style.scale = 1;
   });
 }
+
+

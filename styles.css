@@ -11,6 +11,7 @@ body {
     --secondColor: white;
     --taskHighlight:#2F2F2F;
     --selectorHighlight:#292929;
+    --SelectorBaseColor: #868686;
     
     
 }
@@ -55,7 +56,7 @@ body {
     width: 30px;
 }
 
-/*User button case*/
+/*User button case - controls the positioning of all the elements that get added to the div*/
 .user-button-case {
     display: flex;
     justify-content: center;
@@ -64,7 +65,7 @@ body {
 
 /*User button that holds the image*/
 .user-btn {
-    
+    anchor-name: --profile-button;
     margin: 20px;
     display: flex;
     justify-content: center;
@@ -76,16 +77,6 @@ body {
     border: none;
 }
 
-.userBtn{
-    anchor-name: --User-Button;
-}
-
-/*User Popover Styles*/
-[popover] {
-    
-    
-    
-}
 
 /*Profile Menu*/
 .profile-menu {
@@ -95,32 +86,84 @@ body {
     border-radius: 15px;
     border: 0;
     padding: 0;
+    font-size: 0.7rem;
+    height: max-content;
+    
+
+    /*popover positioning styles that position to the anchor*/
+
+    position: absolute;
+    position-anchor: --profile-button;
+    position-try-fallbacks: --bottom; /*Alternative for when the page is different and certain layouts trigger this*/
+    inset: auto;
+    margin: 0;
+    position: absolute;
+    top: anchor(bottom);
+    right: anchor(right);
+    margin-block-start: 6px;
+
+    /*Transition*/
+    opacity: 0;
+    transition: display 1s, opacity 250ms;
+    transition-behavior: allow-discrete;
+    
     
 }
 
+/*Controls the regular shop of the shape of the popover*/
 .profile-menu:popover-open {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    width: 250px;
-    height:270px;
+    display: grid;
+    opacity: 1;
+
+    /*Affects the fading in or the start of the style*/
+    @starting-style {
+        display: grid;
+        opacity: 0;
+    }
+    
+    
 }
 
-/*Popover menu item*/
+/*Popover menu item items inside the div*/
 .popover-menu-item {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 15px 0px;
     margin: 0;
-    padding: 20px 0px;
-    width: 250px;
+    width: 160px;
     font-family: inter;
+    background-color: #292929;
 }
 
+/*Controls the hover effects for the menu items */
 .popover-menu-item:hover {
     background-color: #3D3D3D;
     cursor: pointer;
+}
+
+/*User Account*/
+#user-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 10px 0;
+}
+
+/*Style for the account info section on the popover*/
+.account-info {
+    padding: 0;
+    margin: 7px 0 0 0;
+
+}
+
+/*fallback for if the initial position doesn't work*/
+@position-try --bottom {
+    inset: auto;
+    bottom: anchor(bottom);
+    right: anchor(left);
 }
 
 /*Avatar*/
@@ -132,6 +175,7 @@ body {
     /*add drop shadow or border to the avatar icon*/
 }
 
+/*Hover style for the avatar icon in the top right*/
 #avatar:hover {
     cursor: pointer;
 }
@@ -151,12 +195,73 @@ body {
 
 }
 
+/*Class Created to hide any element*/
+.hidden {
+    display: none;
+}
+
+/*Selector Section styles that is above the input task box to switch between completed tasks and planned tasks*/
+#selector-case {
+    width: 27rem;
+    height: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #868686;
+    border-radius: 60px;
+    position: absolute;
+}
+
+.selector-word-case {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    height: 40px;
+    z-index: 0;
+    border-radius: 60px;
+}
+
+.selector {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    height: 40px;
+    z-index: 0;
+    border-radius: 60px;
+    background-color: #292929;
+}
+
+.selector-words {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 35rem;
+    margin: 0 0px;
+    font-style: inter;
+    font-weight: bold;
+    color: white;
+    margin: 0 8px;
+    z-index: 1;
+
+    border-radius: 60px;
+}
+
+
+
+
 /*casing that covers the all the elements in the center section*/
 .box {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative; /*Changed*/
 }
 
 .box-non-hover {
@@ -164,6 +269,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative; /*Changed*/
 }
 
 /*Possible center section styles if needed for js*/

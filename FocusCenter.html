@@ -9,7 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="Functionality.js"></script>
+    <script src="SelectorFunctionality.js"></script>
     <script src="OnActive.js"></script>
+    <script type="module">
+        if (!("anchorName" in document.documentElement.style)) {
+          import("https://unpkg.com/@oddbird/css-anchor-positioning");
+        }
+        </script>
 </head>
 <body>
     <!--Navbar Section of the Page-->
@@ -23,13 +29,22 @@
                 <img onmouseover="bellHover()" id="noti-bell" src="Icons/bell.png" alt="dark bell">
                 <!--Create another popover for the user avatar-->
                 <div class="user-button-case">
+                    <!--Popover trigger that is profile picture-->
                     <button popovertarget="profile-menu" class="user-btn" id="userBtn"><img id="avatar" src="Profile-Picture/375666.jpeg" alt=""></button>
-                    <!--POPOVER CASE FOR PROFILE PICTURE-->
+                    <!--POPOVER CASE FOR PROFILE PICTURE DETERMINES THE SHAPE FOR THE POPOVER-->
                     <div popover="manual" anchor="userBtn" id="profile-menu" class="profile-menu">
                         <!--List of popover items that will be able to be selected-->
                         <!--? Make them links at some point -->
-                        <p class="popover-menu-item">User Profile</p>
-                        <p class="popover-menu-item">Manage accounts</p>
+                        <div class="popover-menu-item" id="user-account">
+                            <p class="account-info">Blase Santana</p>
+                            <p class="account-info">Blase123@gmail.com</p>
+                        </div>
+                        <div class="manage-accounts">
+                            <p class="popover-menu-item">Manage accounts</p>
+                        </div>
+                        <div class="settings">
+                            <p class="popover-menu-item">Settings</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,45 +52,62 @@
     </section>
     
     <!--Main Page-->
-    <div class="main-page">
-        <!--Task box / Searchbar / Center Section-->
-        <div id="box" class="box">
-            <div class="center-section" id="center-section">
-                <!--Searchbar-->
-                <div id="input-section">
-                    <form action="append">
-                        <input class="input-task" id="input-task" type="text" placeholder="Add task..." autocomplete="off">
-                    </form>
-                    <button onclick="addTask()" id="add-btn">+</button>
+    
+    <section>
+        <div class="main-page">
+            <!--Switch Between Box Selector : Make within the menu bar on the side-->
+        <section>
+             <div id="selector-case">
+                <div class="selector-words">
+                    <div class="selector">
+                        <p id="planned">Planned.</p>
+                    </div>
+                    <div class="selector-word-case">
+                        <p id="complete">Complete.</p>
+                    </div>
                 </div>
-                <!--introPhrase Gets appended here-->
             </div>
-            <!--Edit this section and figure out how to transition this in when the padding 
-            drops down -->
-            <div id="phrase-case" class="phrase-case">
-                <h3 class="intro-phrase" id="introPhrase">Let's Add Some Tasks</h3>
-            </div> 
+        </section>
 
-            <ul id="task-list">
-                <!--List items will be added here-->
-            </ul>
-            <div id="listCase">
+            <!--Task box / Searchbar / Center Section-->
+            
+            <div id="box" class="box">
+                <div class="center-section" id="center-section">
+                    <!--Searchbar-->
+                    <div id="input-section">
+                        <form action="append">
+                            <input class="input-task" id="input-task" type="text" placeholder="Add task..." autocomplete="off">
+                        </form>
+                        <button onclick="addTask()" id="add-btn">+</button>
+                    </div>
+                    <!--introPhrase Gets appended here-->
+                </div>
+                <!--Edit this section and figure out how to transition this in when the padding 
+                drops down -->
+                <div id="phrase-case" class="phrase-case">
+                    <h3 class="intro-phrase" id="introPhrase">Let's Add Some Tasks</h3>
+                </div> 
+    
+                <ul id="task-list">
+                    <!--List items will be added here-->
+                </ul>
+                <div id="listCase">
+                    
+                    <!--Case that has the intro phrase when the center section is initially hovered over-->
+                    
+                    <!--This section is to store all the items that will be appended to the list -->
+                    
+                </div>
                 
-                <!--Case that has the intro phrase when the center section is initially hovered over-->
-                
-                <!--This section is to store all the items that will be appended to the list -->
                 
             </div>
             
             
         </div>
-        
-        
-    </div>
-    
-    <!--Switch Between Box Selector-->
+    </section>
     
     
+
 </body>
 </html>
 
